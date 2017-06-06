@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/base-layout">
+<body>
+<div class="page-content" layout:fragment="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-3 col-md-offset-6 col-lg-offset-7 col-sm-6 col-md-5 col-lg-4">
+                <div class="panel panel-custom lr-box">
+                    <div class="panel-body">
+                        <form id="register-form" method="post">
+                            <h4>帐号注册</h4>
+                            <div class="form-group form-group-lg">
+                                <input name="username" type="text" class="form-control" required placeholder="帐号">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div class="form-group form-group-lg">
+                                <input name="password" type="password" class="form-control" required placeholder="密码">
+                                <i class="fa fa-lock"></i>
+                            </div>
+                            <div class="form-group form-group-lg">
+                                <input name="pwd" type="password" class="form-control" required placeholder="确认密码">
+                                <i class="fa fa-lock"></i>
+                            </div>
+                            <div class="form-group form-group-lg">
+                                <input name="email" type="email" class="form-control" required placeholder="邮箱">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div class="form-group form-group-lg">
+                                <a href="javascript:void(0)" onclick="submitForm()" class="btn btn-success btn-lg btn-block">注册</a>
+                            </div>
+                            <div class="form-group form-group-lg text-center">
+                                已有帐号，返回<a th:href="@{/login}">登录</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function submitForm() {
+            $.ajax({
+                url: path + '/register',
+                data: $("#register-form").serialize(),
+                dataType: 'json',
+                type: 'post',
+                success: function (result) {
+                    console.info(result)
+                }
+            })
+        }
+    </script>
+</div>
+</body>
+</html>

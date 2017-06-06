@@ -1,0 +1,15 @@
+server:
+  context-path:
+spring:
+  profiles:
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  thymeleaf:
+    mode: LEGACYHTML5
+  mail:
+    host:
+    port:
+    username:
+    password:

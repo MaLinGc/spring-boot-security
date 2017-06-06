@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>JHipster creation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="shortcut icon" href="${baseUrl}/favicon.ico" />
+    </head>
+    <body>
+        <p th:text="#{|亲爱的用户 (${user.username}) ，您好|}">
+            Dear
+        </p>
+        <p>
+            Your JHipster account has been created, please click on the URL below to access it:
+        </p>
+        <p>
+          <a th:href="@{|${baseUrl}/reset/finish?key=${user.resetKey}|}"
+             th:text="|${user.username}|">login</a>
+        </p>
+        <p>
+            <span>Regards, </span>
+            <br/>
+            <em>JHipster.</em>
+        </p>
+    </body>
+</html>

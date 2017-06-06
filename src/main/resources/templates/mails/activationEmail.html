@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>JHipster activation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="shortcut icon" href="${baseUrl}/favicon.ico" />
+    </head>
+    <body>
+        <p th:text="${|亲爱的用户 (${user.username}) ，您好|}">
+            Dear
+        </p>
+        <p>
+            Your JHipster account has been created, please click on the URL below to activate it:
+        </p>
+        <p>
+            <a th:href="@{|${baseUrl}/activate?key=${user.activationKey}|}"
+               th:text="|${user.username}|">Activation Link</a>
+        </p>
+        <p>
+            <span>Regards, </span>
+            <br/>
+            <em>JHipster.</em>
+        </p>
+    </body>
+</html>
